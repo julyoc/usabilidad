@@ -20,12 +20,23 @@ import 'zone.js/dist/zone-node';
 import * as express from 'express';
 import {join} from 'path';
 import * as cors from 'cors';
+import * as graphqlHTTP from 'express-graphql';
+import schema from './module/schemas';
 
 // Express server
 const app = express();
 
 // Set Cors meddleware
 app.use(cors());
+
+// Set Graphql meddleware
+app.use('/graphql', graphqlHTTP((req, res, graphQLParams) => ({
+  graphiql: true,
+  schema: schema,
+  context: {
+    req
+  }
+})));
 
 const PORT = process.env.PORT || 4000;
 const DIST_FOLDER = join(process.cwd(), 'dist/browser');
