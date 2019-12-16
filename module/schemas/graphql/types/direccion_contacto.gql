@@ -1,0 +1,9 @@
+type DireccionContacto {
+    _id: ID,
+    datos_personales_id: ID,
+    provincia: String,
+    canton: String,
+    parroquia: String,
+    dir: Dir,
+    telefono: [Tell]
+}

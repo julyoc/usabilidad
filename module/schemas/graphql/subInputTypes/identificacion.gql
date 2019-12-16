@@ -1,0 +1,4 @@
+input IdentificacionIn {
+    ci: Boolean!,
+    number: String!
+}

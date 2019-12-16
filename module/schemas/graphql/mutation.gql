@@ -1,3 +1,50 @@
+#import "./inputTypes/datos_personales.gql"
+#import "./inputTypes/direccion_contacto.gql"
+#import "./inputTypes/contacto_emergencia.gql"
+#import "./inputTypes/conyuge.gql"
+#import "./inputTypes/bienes.gql"
+#import "./inputTypes/info_familiar.gql"
+#import "./inputTypes/info_bancaria.gql"
+#import "./inputTypes/formacion.gql"
+#import "./inputTypes/capacitacion.gql"
+#import "./inputTypes/publicaciones.gql"
+#import "./inputTypes/experiencia.gql"
+#import "./inputTypes/trabajo.gql"
+#import "./inputTypes/notificacion.gql"
+
+#import "./subInputTypes/dir.gql"
+#import "./subInputTypes/discapasidad.gql"
+#import "./subInputTypes/enfermedades.gql"
+#import "./subInputTypes/identificacion.gql"
+#import "./subInputTypes/notaria.gql"
+#import "./subInputTypes/tell.gql"
+#import "./subInputTypes/keys.gql"
+
+
 type Mutation {
-    mute(data: String!): String
+
+    pushOnePersonData(data: DatosPersonalesIn!): ID,
+    pushOneDireccionContacto(data: DireccionContactIn!): String,
+    pushOneContactoEmergencia(data: ContactoEmergenciaIn!): String,
+    pushOneConyuge(data: ConyugeIn!): String,
+    pushOneBienes(data: BienesIn!): String,
+    pushOneInfoFamiliar(data: InfoFamiliarIn!): String,
+    pushOneInfoBancaria(data: InfoBancariaIn!): String,
+    pushOneFormacion(data: FormacionIn!): String,
+    pushOneCapacitacion(data: CapacitacionIn!): String,
+    pushOnePublicaciones(data: PublicacionesIn!): String,
+    pushOneExperiencia(data: ExperienciaIn!): String,
+    pushOneTrabajo(data: TrabajoIn!): String,
+
+    pushSomeInfoFamiliar(data: [InfoFamiliarIn]!): String,
+    pushSomeFormacion(data: [FormacionIn]!): String,
+    pushSomeCapacitacion(data: [CapacitacionIn]!): String,
+    pushSomePublicaciones(data: [PublicacionesIn]!): String,
+    pushSomeExperiencia(data: [ExperienciaIn]!): String,
+
+    deleteOne(personID: ID!): String,
+
+    setNotificacion(data: NotificacionIn!): String,
+    sendNotificacion(title: String!, message: String!, user: NotificacionIn!): String
+
 }

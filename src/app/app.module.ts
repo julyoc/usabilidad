@@ -8,6 +8,10 @@ import { environment } from '../environments/environment';
 import { GraphQLModule } from './graphql.module';
 import { HttpClientModule } from '@angular/common/http';
 
+import { CookieService } from 'ngx-cookie-service';
+import { HomeModule } from './home/home.module';
+import { PushNotificacionesService } from './push-notificaciones.service';
+
 @NgModule({
   declarations: [
     AppComponent
@@ -16,10 +20,11 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+    HttpClientModule,
     GraphQLModule,
-    HttpClientModule
+    HomeModule
   ],
-  providers: [],
+  providers: [CookieService, PushNotificacionesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

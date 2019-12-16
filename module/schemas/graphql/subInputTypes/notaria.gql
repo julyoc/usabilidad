@@ -1,0 +1,4 @@
+input NotariaIn {
+    num: Int!,
+    lugar: String
+}

@@ -1,0 +1,16 @@
+type DatosPersonales {
+    _id: ID,
+    identificacion: Identificacion,
+    nombre: [String],
+    apellido: [String],
+    nacimiento: String,
+    edad: Int,
+    nacionalidad: String,
+    residencia: Int,
+    sangre: String,
+    enfermedades: Enfermedades,
+    sexo: String,
+    discapasidad: Discapasidad,
+    iden_etnica: String,
+    mail:[String]
+}

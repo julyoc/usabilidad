@@ -2,6 +2,7 @@
 
 const path = require('path');
 const webpack = require('webpack');
+const TypedocWebpackPlugin = require('typedoc-webpack-plugin');
 
 module.exports = {
   mode: 'none',
@@ -56,6 +57,13 @@ module.exports = {
       /(.+)?express(\\|\/)(.+)?/,
       path.join(__dirname, 'src'),
       {}
-    )
+    ),
+    new TypedocWebpackPlugin({
+      "mode": "modules",
+      "out": "./docs",
+      "name": "UsabilidadDocs",
+      "exclude": '**/node_modules/**/*.*',
+      "target": "ES2015"
+    }, ["server.ts", "./src", "./module"])
   ]
 };

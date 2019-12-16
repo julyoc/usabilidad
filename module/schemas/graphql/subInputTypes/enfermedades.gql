@@ -1,0 +1,4 @@
+input EnfermedadesIn {
+    enfermedad: Boolean!,
+    tipo: String
+}

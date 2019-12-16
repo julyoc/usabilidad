@@ -1,0 +1,8 @@
+input DireccionContactIn {
+    datos_personales_id: ID!,
+    provincia: String!,
+    canton: String!,
+    parroquia: String!,
+    dir: DirIn!,
+    telefono: [TellIn]!
+}

@@ -1,0 +1,15 @@
+input DatosPersonalesIn {
+    identificacion: IdentificacionIn!,
+    nombre: [String]!,
+    apellido: [String]!,
+    nacimiento: String!,
+    edad: Int!,
+    nacionalidad: String!,
+    residencia: Int!,
+    sangre: String!,
+    enfermedades: EnfermedadesIn!,
+    sexo: String!,
+    discapasidad: DiscapasidadIn!,
+    iden_etnica: String!,
+    mail:[String]!
+}

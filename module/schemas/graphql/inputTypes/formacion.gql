@@ -1,0 +1,12 @@
+input FormacionIn {
+    datos_personales_id: ID!,
+    nivel: String!,
+    institucion: String!,
+    titulo: String!,
+    registro: String!,
+    graduacion: String!,
+    pais: String!,
+    num_snc: String!,
+    tiempo: Int!,
+    area: String!
+}

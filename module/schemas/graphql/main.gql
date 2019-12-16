@@ -1,4 +1,51 @@
+#import "./types/datos_personales.gql"
+#import "./types/direccion_contacto.gql"
+#import "./types/contacto_emergencia.gql"
+#import "./types/conyuge.gql"
+#import "./types/bienes.gql"
+#import "./types/info_familiar.gql"
+#import "./types/info_bancaria.gql"
+#import "./types/formacion.gql"
+#import "./types/capacitacion.gql"
+#import "./types/publicaciones.gql"
+#import "./types/experiencia.gql"
+#import "./types/trabajo.gql"
+#import "./types/notificacion.gql"
+
+#import "./subTypes/dir.gql"
+#import "./subTypes/discapasidad.gql"
+#import "./subTypes/enfermedades.gql"
+#import "./subTypes/identificacion.gql"
+#import "./subTypes/notaria.gql"
+#import "./subTypes/tell.gql"
+#import "./subTypes/keys.gql"
+
+
 #import "./mutation.gql"
+
 type Query {
-    hello(name: String!): String
+
+    findAll: [DatosPersonales],
+
+    findOnePersonData(ci: Boolean!, number: String!): DatosPersonales,
+    findOneDireccionContacto(personID: ID!): DireccionContacto,
+    findOneContactoEmergencia(personID: ID!): ContactoEmergencia,
+    findOneConyuge(personID: ID!): Conyuge,
+    findOneBienes(personID: ID!): Bienes,
+    findOneInfoFamiliar(personID: ID!): InfoFamiliar,
+    findOneInfoBancaria(personID: ID!): InfoBancaria,
+    findOneFormacion(personID: ID!): Formacion,
+    findOneCapacitacion(personID: ID!): Capacitacion,
+    findOnePublicaciones(personID: ID!): Publicaciones,
+    findOneExperiencia(personID: ID!): Experiencia,
+    findOneTrabajo(personID: ID!): Trabajo,
+
+    findSomeInfoFamiliar(personID: ID!): [InfoFamiliar],
+    findSomeFormacion(personID: ID!): [Formacion],
+    findSomeCapacitacion(personID: ID!): [Capacitacion],
+    findSomePublicaciones(personID: ID!): [Publicaciones],
+    findSomeExperiencia(personID: ID!): [Experiencia],
+
+    findAllNot: [Notificacion]
+
 }

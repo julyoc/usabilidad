@@ -1,0 +1,11 @@
+input InfoFamiliarIn {
+    datos_personales_id: ID!,
+    nombre: [String]!,
+    apellido: [String]!,
+    parentesco: String!,
+    identificacion: String!,
+    instruccion: Int!,
+    nacimiento: String!,
+    discapasidad: DiscapasidadIn!,
+    sangre: String!
+}

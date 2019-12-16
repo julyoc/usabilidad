@@ -1,0 +1,6 @@
+type Discapasidad {
+    discapasidad: Boolean!,
+    tipo: String,
+    nivel: Float,
+    carnet: String
+}

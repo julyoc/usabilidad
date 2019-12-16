@@ -1,0 +1,4 @@
+type Enfermedades {
+    enfermedad: Boolean!,
+    tipo: String
+}

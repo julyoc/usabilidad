@@ -1,0 +1,6 @@
+type Dir {
+    calle_1: String,
+    calle_2: String,
+    num_casa: String,
+    referencia: String
+}

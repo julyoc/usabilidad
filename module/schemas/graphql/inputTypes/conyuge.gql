@@ -1,0 +1,7 @@
+input ConyugeIn {
+    datos_personales_id: ID!,
+    nombre: [String]!,
+    apellido: [String]!,
+    relacion: String!,
+    nacimiento: String!
+}

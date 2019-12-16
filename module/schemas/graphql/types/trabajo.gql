@@ -1,0 +1,10 @@
+type Trabajo {
+    _id: ID,
+    datos_personales_id: ID!,
+    sede: String!,
+    cargo: String!,
+    departamento: String!,
+    tiempo: Int!,
+    firma: String!,
+    fecha: String!
+}

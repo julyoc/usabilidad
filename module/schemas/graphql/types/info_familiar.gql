@@ -1,0 +1,12 @@
+type InfoFamiliar {
+    _id: ID,
+    datos_personales_id: ID,
+    nombre: [String],
+    apellido: [String],
+    parentesco: String,
+    identificacion: String,
+    instruccion: Int,
+    nacimiento: String,
+    discapasidad: Discapasidad,
+    sangre: String
+}

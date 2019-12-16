@@ -1,0 +1,13 @@
+input PublicacionesIn {
+    datos_personales_id: ID!,
+    titulo: String!,
+    participacion: String!,
+    idioma: String!,
+    doi: String!,
+    estado: String!,
+    publicador: String!,
+    fecha: String!,
+    volumen: String!,
+    revision: String!,
+    tipo: String!
+}

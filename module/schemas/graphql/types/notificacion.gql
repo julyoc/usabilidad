@@ -1,0 +1,6 @@
+type Notificacion {
+    _id: ID!,
+    endpoint: String!,
+    expirationTime: String,
+    keys: Keys!
+}

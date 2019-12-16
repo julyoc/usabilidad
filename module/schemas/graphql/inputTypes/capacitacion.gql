@@ -1,0 +1,13 @@
+input CapacitacionIn {
+    datos_personales_id: ID!,
+    tipo: String!,
+    tema: String!,
+    institucion: String!,
+    horas: Int!,
+    cert: String!,
+    fecha_inicio: String!,
+    fecha_fin: String!,
+    pais: String!,
+    provincia: String!,
+    tipo_cert: String!
+}

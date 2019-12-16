@@ -1,0 +1,7 @@
+input InfoBancariaIn {
+    datos_personales_id: ID!,
+    tipo: String!,
+    nombre: String!,
+    cuenta: String!,
+    num_cuenta: String!
+}

@@ -1,0 +1,13 @@
+type ContactoEmergencia {
+    _id: ID
+    datos_personales_id: ID,
+    nombre: [String],
+    apellido: [String],
+    telefono: [String],
+    identificacion: Identificacion,
+    parentesco: String,
+    provincia: String,
+    canton: String,
+    parroquia: String,
+    dir: Dir
+}

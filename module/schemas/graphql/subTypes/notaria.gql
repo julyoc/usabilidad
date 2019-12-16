@@ -1,0 +1,4 @@
+type Notaria {
+    num: Int!,
+    lugar: String
+}

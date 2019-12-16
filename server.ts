@@ -22,6 +22,20 @@ import {join} from 'path';
 import * as cors from 'cors';
 import * as graphqlHTTP from 'express-graphql';
 import schema from './module/schemas';
+import { connect } from 'mongoose';
+
+//set mongodb conection
+const uri = 'mongodb://localhost:27017/usabilidad';
+connect(uri, {
+  useNewUrlParser: true,
+  autoIndex: true,
+  useCreateIndex: true,
+  family: 4
+}).then(() => {
+  console.info("connect to mongodb");
+}, err => {
+  console.error(err);
+});
 
 // Express server
 const app = express();

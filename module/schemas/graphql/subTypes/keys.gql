@@ -1,0 +1,4 @@
+type Keys {
+    auth: String!,
+    p256dh: String!
+}

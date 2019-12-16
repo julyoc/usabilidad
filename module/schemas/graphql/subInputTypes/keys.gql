@@ -1,0 +1,4 @@
+input KeysIn {
+    auth: String!,
+    p256dh: String!
+}

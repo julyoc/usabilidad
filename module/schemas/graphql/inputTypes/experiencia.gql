@@ -1,0 +1,13 @@
+input ExperienciaIn {
+    datos_personales_id: ID!,
+    nombre: String!,
+    u_administrativa: String!,
+    motivo_ingreso: String!,
+    motivo_salida: String!,
+    pais: String!,
+    provincia: String!,
+    fecha_ingreso: String!,
+    fecha_salida: String!,
+    tipo_institucion: String!,
+    puesto: String!
+}

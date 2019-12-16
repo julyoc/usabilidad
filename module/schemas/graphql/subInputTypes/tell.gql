@@ -1,0 +1,4 @@
+input TellIn {
+    ext: String,
+    num: String
+}
