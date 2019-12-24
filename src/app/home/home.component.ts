@@ -8,11 +8,15 @@ import { CookieService } from 'ngx-cookie-service';
 })
 export class HomeComponent implements OnInit, OnDestroy {
 
+  private cookies: any;
   constructor(private cookieService: CookieService) { }
 
   ngOnInit() {
+    this.cookies = this.cookieService.getAll();
+    console.log('cookies:', this.cookies);
   }
 
   ngOnDestroy() {
+    delete this.cookies;
   }
 }

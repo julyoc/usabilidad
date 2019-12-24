@@ -11,6 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
 import { HomeModule } from './home/home.module';
 import { PushNotificacionesService } from './push-notificaciones.service';
+import { DataService } from './data.service';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,7 @@ import { PushNotificacionesService } from './push-notificaciones.service';
     GraphQLModule,
     HomeModule
   ],
-  providers: [CookieService, PushNotificacionesService],
+  providers: [CookieService, PushNotificacionesService, DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
