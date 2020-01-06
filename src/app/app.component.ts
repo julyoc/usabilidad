@@ -4,6 +4,7 @@ import { LogUpdateService } from './log-update.service';
 import { PromptUpdateService } from './prompt-update.service';
 import { SwPush } from '@angular/service-worker';
 import { PushNotificacionesService } from './push-notificaciones.service';
+import { environment } from '../environments/environment';
 import { CookieService } from 'ngx-cookie-service';
 import { Autor } from './autor';
 
@@ -16,6 +17,7 @@ const VAPID_PUBLIC = 'BNOJyTgwrEwK9lbetRcougxkRgLpPs1DX0YCfA5ZzXu4z9p_Et5EnvMja7
 export class AppComponent {
   public title = 'usabilidad';
   public autores: Array<Autor> = [];
+  public env: Boolean = environment.production;
   constructor (updates: CheckForUpdateService, logUpdate: LogUpdateService, prompUpdate: PromptUpdateService, private swPush: SwPush, private send: PushNotificacionesService, private cookie: CookieService) {
     if (this.swPush.isEnabled) {
       this.swPush.requestSubscription({serverPublicKey: VAPID_PUBLIC}).then(subscription => {
