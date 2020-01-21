@@ -12,6 +12,7 @@ const sqm: any = {
     nacionalidad: String,
     residencia: {type: Number, default: 0},
     sangre: String,
+    estado_civil: String,
     enfermedades: {
         enfermedad: Boolean,
         tipo: {type: String, default: ''}

@@ -19,15 +19,42 @@ import * as webPush from 'web-push';
 
 
 //set vapid
+/**
+ * 
+ * @constant VAPID_PUBLIC string con clave para enviar notificaciones
+ */
 const VAPID_PUBLIC = 'BNOJyTgwrEwK9lbetRcougxkRgLpPs1DX0YCfA5ZzXu4z9p_Et5EnvMja7MGfCqyFCY4FnFnJVICM4bMUcnrxWg';
+
+/**
+ * 
+ * @constant PRIVATE_VAPID string con clave privada para enviar notificaciones
+ */
 const PRIVATE_VAPID = '_kRzHiscHBIGftfA7IehH9EA3RvBl8SBYhXBAMz6GrI';
+
+/**
+ * 
+ * Servicio para enviar las notificaciones y establece las claves
+ */
 webPush.setVapidDetails('mailto:julio@localhost:4000', VAPID_PUBLIC, PRIVATE_VAPID);
 
+/**
+ * objeto json con las funciones resolvers para graphql y la administracion a base de datos
+ * @constant solvers
+ */
 const solvers =  {
 
+    /**
+     * 
+     * guarda los datos de una persona registrada 
+     * @function pushOnePersonData
+     * @async
+     * @param _
+     * @param data obtiene la informacion enviada del cliente
+     */
     pushOnePersonData: async (_, { data }) => {
         data.nacimiento = new Date(data.nacimiento);
         var Person = new DatosPersonales(data);
+        console.log(data);
         var ret: any;
         await Person.save((err: any, product: Document) => {
             if ( err ) console.error(err);
@@ -36,6 +63,15 @@ const solvers =  {
         });
         return ret;
     },
+
+    /**
+     * 
+     * guarda la direccion de la persona registrada
+     * @function pushOneDireccionContacto
+     * @async
+     * @param _
+     * @param data datos de direccion obtenida desde el cliente
+     */
     pushOneDireccionContacto: async (_, { data }) => {
         var DirConct = new DireccionContacto(data);
         var ret: String = '';
@@ -46,6 +82,15 @@ const solvers =  {
         });
         return ret;
     },
+
+    /**
+     * 
+     * guarda en contacto de emergencia
+     * @function pushOneContactoEmergencia
+     * @async
+     * @param _
+     * @param data dato de contacto de emergencia obtenido desde el cliente
+     */
     pushOneContactoEmergencia: async (_, { data }) => {
         var ConctEm = new ContactoEmergencia(data);
         var ret: String = '';
@@ -56,6 +101,15 @@ const solvers =  {
         });
         return ret;
     },
+
+    /**
+     * 
+     * guarda el conyuge en caso de tenerlo
+     * @function pushOneConyuge
+     * @async 
+     * @param _
+     * @param data dato de conyuje obtenido del cliente
+     */
     pushOneConyuge: async (_, { data }) => {
         data.nacimiento = new Date(data.nacimiento);
         var Conyug = new Conyuge(data);
@@ -67,6 +121,16 @@ const solvers =  {
         });
         return ret;
     },
+
+    /**
+     * 
+     * guarda los bienes que registra el usuario
+     * @function pushOneBienes
+     * @async
+     * 
+     * @param _
+     * @param data datos de los bienes obtenidos del cliente
+     */
     pushOneBienes: async (_, { data }) => {
         data.fecha = new Date(data.fecha);
         var Biene = new Bienes(data);
@@ -78,6 +142,15 @@ const solvers =  {
         });
         return ret;
     },
+
+    /**
+     * 
+     * guarda la informacion de los familiares 
+     * @function pushOneInfoFamiliar
+     * @async
+     * @param _
+     * @param data datos de los familiares obtenidos del cliente
+     */
     pushOneInfoFamiliar: async (_, { data }) => {
         data.nacimiento = new Date(data.nacimiento);
         var InfoFam = new InfoFamiliar(data);
@@ -89,6 +162,15 @@ const solvers =  {
         });
         return ret;
     },
+
+    /**
+     * 
+     * guarda la informacion bancaria
+     * @function pushOneInfoBancaria
+     * @async
+     * @param _
+     * @param data datos de la informacion bancaria enviados desde el cliente
+     */
     pushOneInfoBancaria: async (_, { data }) => {
         var Banco = new InfoBancaria(data);
         var ret: String = '';
@@ -99,6 +181,15 @@ const solvers =  {
         });
         return ret;
     },
+
+    /**
+     * 
+     * guarda los datos de la formacion de la persona
+     * @function pushOneFormacion
+     * @async
+     * @param _
+     * @param data datos de la formacion enviados desde el cliente
+     */
     pushOneFormacion: async (_, { data }) => {
         data.registro = new Date(data.registro);
         data.graduacion = new Date(data.graduacion);
@@ -111,6 +202,15 @@ const solvers =  {
         });
         return ret;
     },
+
+    /**
+     * 
+     * guarda los datos de capasitaciones que ha tenido
+     * @function pushOneCapacitacion
+     * @async
+     * @param _
+     * @param data datos obtenidos de las capasitaciones desde el cliente
+     */
     pushOneCapacitacion: async (_, { data }) => {
         data.fecha_inicio = new Date(data.fecha_inicio);
         data.fecha_fin = new Date(data.fecha_fin);
@@ -123,6 +223,15 @@ const solvers =  {
         });
         return ret;
     },
+
+    /**
+     * 
+     * guarda los datos de las publicaciones
+     * @function pushOnePublicaciones
+     * @async
+     * @param _
+     * @param data datos sobre las publicaciones obtenidas desde el cliente
+     */
     pushOnePublicaciones: async (_, { data }) => {
         data.fecha = new Date(data.fecha);
         var Publicacion = new Publicaciones(data);
@@ -268,10 +377,11 @@ const solvers =  {
             notification: {
                 title: title,
                 body: message,
-                icon: 'assets/icons/icon-512x512.png',
+                icon: 'assets/icons/icon-128x128.png',
             },
         }
         webPush.sendNotification(user, JSON.stringify(notificationPayload));
+        console.log('Notificacion enviada');
         return 'Notificacion enviada';
     }
 }

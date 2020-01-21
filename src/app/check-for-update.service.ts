@@ -6,8 +6,17 @@ import { first } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
+/**
+ * 
+ * @class CheckForUpdateService
+ */
 export class CheckForUpdateService {
 
+  /**
+   * 
+   * @param appRef 
+   * @param updates 
+   */
   constructor(appRef: ApplicationRef, updates: SwUpdate) { 
     // Allow the app to stabilize first, before starting polling for updates with `interval()`.
     const appIsStable$ = appRef.isStable.pipe(first(isStable => isStable === true));

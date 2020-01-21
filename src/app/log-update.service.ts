@@ -4,8 +4,16 @@ import { SwUpdate } from '@angular/service-worker';
 @Injectable({
   providedIn: 'root'
 })
+/**
+ * 
+ * @class LogUpdateService
+ */
 export class LogUpdateService {
 
+  /**
+   * 
+   * @param updates Verifica la vercion del pwa
+   */
   constructor(updates: SwUpdate) { 
     updates.available.subscribe(event => {
       console.log('current version is', event.current);

@@ -1,0 +1,27 @@
+<main class="container">
+    <div class="row">
+        <div class="col-md-6"></div>
+        <div class="col-md-5">
+            <h5>Log-in</h5>
+            <br>
+            <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
+                <div class="form-group">
+                    <label for="user">Usuario:</label>
+                    <input type="text" id="user" class="form-control" formControlName="user">
+                </div>
+                <br>
+                <div class="form-group">
+                    <label for="pass">Contraseña:</label>
+                    <input type="password" id="pass" class="form-control" formControlName="pass">
+                </div>
+                <br>
+            <span>{{message}}</span>
+                <br>
+                <div class="form-group">
+                    <input type="submit" value="Submit" class="btn btn-primary">
+                </div>
+            </form>
+        </div>
+        <div class="col-md-1"></div>
+    </div>
+</main>

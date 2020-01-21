@@ -5,10 +5,25 @@ import gql from 'graphql-tag';
 @Injectable({
   providedIn: 'root'
 })
+/**
+ * @class PushNotificacionesService
+ * 
+ * se enccarga de enviar notificaciones nativas al usario
+ */
 export class PushNotificacionesService {
 
+  /**
+   * 
+   * @param apollo coneccion a graphql
+   */
   constructor(private apollo: Apollo) { }
 
+  /**
+   * 
+   * @function setNotification
+   * @param client datos del navegador al que se envia la notificacion 
+   * @returns susbcription
+   */
   public setNotification(client: any) {
     return this.apollo.mutate({
       mutation: gql`mutation{
@@ -18,6 +33,16 @@ export class PushNotificacionesService {
     });
   }
 
+  /**
+   * 
+   * envia una notificacion personalizada al usuario
+   * @function sendNotification 
+   * @param title Titulo de la notificacion
+   * @param message Contenido de la notificacion
+   * @param endpoint dato del navegador
+   * @param auth dato del navegador
+   * @param p256dh dato del navegador
+   */
   public sendNotification(title: String, message: String, endpoint: String, auth: String, p256dh: String) {
     return this.apollo.mutate({
       mutation: gql`mutation {

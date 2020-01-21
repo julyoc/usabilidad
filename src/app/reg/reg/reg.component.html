@@ -1,0 +1,134 @@
+<main class="container">
+    <br>
+    <section class="row">
+        <div class="col-md-1"></div>
+        <article class="col-md-10">
+            <p><strong>Ingreso de Datos personales:</strong></p>
+        </article>
+        <div class="col-md-1"></div>
+    </section>
+    <section>
+        <article>
+            <form [formGroup]="formulario"  (ngSubmit)="onSubmit()">
+                <div class="row">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-10">
+                        <div class="input-group">
+                            <div class="input-group-prepend"><span class="input-group-text">Nombres | Apellidos</span></div>
+                            <input type="text" class="form-control" aria-label="nombre" placeholder="Nombres" formControlName="nombre" required>
+                            <input type="text" class="form-control" aria-label="apellido" placeholder="Apellidos" formControlName="apellido" required>
+                        </div>
+                    </div>
+                    <div class="col-md-1"></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-10">
+                        <div class="input-group">
+                            <div class="input-group-prepend"><span class="input-group-text">Numero de Identificación</span></div>
+                            <input type="text" class="form-control" aria-label="number" placeholder="999999999-9" formControlName="number" required>
+                            <div class="input-group-prepend"><div class="input-group-text"><input type="radio" aria-label="ci" formControlName="ci"></div></div>
+                            <input type="text" class="form-control" value="Pasaporte" readonly>
+                        </div>
+                    </div>
+                    <div class="col-md-1"></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-10">
+                        <div class="input-group">
+                            <div class="input-group-prepend"><span class="input-group-text">Fecha de nacimiento</span></div>
+                            <input type="date" class="form-control" aria-label="nacimiento" formControlName="nacimiento" required>
+                            <div class="input-group-prepend"><span class="input-group-text">Sexo</span></div>
+                            <select class="form-control" [formControl]="sexoform" required>
+                                <option *ngFor="let item of sexo" [value]="item">{{item}}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-1"></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-10">
+                        <div class="input-group">
+                            <div class="input-group-prepend"><span class="input-group-text">Nacionalidad</span></div>
+                            <input type="text" class="form-control" aria-label="nacionalidad" placeholder="nacionalidad" formControlName="nacionalidad" required>
+                            <div class="input-group-prepend"><span class="input-group-text">Tiempo de residencia</span></div>
+                            <input type="number" class="form-control" aria-label="residencia" formControlName="residencia">
+                            <div class="input-group-prepend"><span class="input-group-text">Tipo de sangre</span></div>
+                            <select class="form-control" [formControl]="sangre" required>
+                                <option *ngFor="let item of tipoSangre" [value]="item">{{item}}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-1"></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-10">
+                        <div class="input-group">
+                            <div class="input-group-prepend"><span class="input-group-text">Estado Civil</span></div>
+                            <input type="text" class="form-control" aria-label="estado_civil" placeholder="estado civil" formControlName="estado_civil" required>
+                        </div>
+                    </div>
+                    <div class="col-md-1"></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-10">
+                        <div class="input-group">
+                            <div class="input-group-prepend"><div class="input-group-text"><input type="radio" aria-label="enfermedades" formControlName="enfermedades"></div></div>
+                            <input type="text" class="form-control"  value="Enfermedades Catastróficas" readonly>
+                            <div class="input-group-prepend"><span class="input-group-text">Tipo de Enfermedad</span></div>
+                            <input type="text" class="form-control" aria-label="estado_civil" placeholder="tipo" formControlName="enfTipo">
+                        </div>
+                    </div>
+                    <div class="col-md-1"></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-10">
+                        <div class="input-group">
+                            <div class="input-group-prepend"><span class="input-group-text">Identificación Etnica</span></div>
+                            <input type="text" class="form-control" aria-label="iden_etnica" placeholder="Identificacion etnica" formControlName="iden_etnica" required>
+                        </div>
+                    </div>
+                    <div class="col-md-1"></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-10">
+                        <div class="input-group">
+                            <div class="input-group-prepend"><span class="input-group-text">Correo Electronico</span></div>
+                            <input type="text" class="form-control" aria-label="mail" placeholder="ejm1@ejm.com ejm2@ejm.com" formControlName="mail" required>
+                            <div class="input-group-prepend"><span class="input-group-text">@</span></div>
+                        </div>
+                    </div>
+                    <div class="col-md-1"></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-10">
+                        <div class="input-group">
+                            <div class="input-group-prepend"><div class="input-group-text"><input type="radio" aria-label="discapasidad" formControlName="discapasidad" (click)="selecDis($event)"></div></div>
+                            <input type="text" class="form-control" value="Capasidades especiales" readonly>
+                        </div>
+                    </div>
+                    <div class="col-md-1"></div>
+                </div>
+                <app-disc [datval]="disSelec" (datos)="getInfo($event)"></app-disc>
+                <br>
+                <div class="row">
+                    <div class="col-md-5"></div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <input type="submit" value="continuar" class="btn btn-primary">
+                        </div>
+                    </div>
+                    <div class="col-md-5"></div>
+                </div>
+            </form>
+        </article>
+    </section>
+    <app-account></app-account>
+</main>

@@ -8,6 +8,7 @@ type DatosPersonales {
     nacionalidad: String,
     residencia: Int,
     sangre: String,
+    estado_civil: String!
     enfermedades: Enfermedades,
     sexo: String,
     discapasidad: Discapasidad,

@@ -1,24 +1,20 @@
 <header class="container">
   <div class="row">
-    <div class="col-md-5">
-      <h2>
-        {{title}}
-      </h2>
+    <div class="col-md-4">
+      <img src="../assets/images/espeLog.png" alt="{{title}}">
     </div>
-    <nav class="col-md-7">
-      <ul class="nav justify-content-end">
+    <nav class="col-md-8">
+      <br>
+      <ul class="nav nav-tabs justify-content-end align-bottom">
         <li class="nav-item"><a routerLink="/" class="nav-link" routerLinkActive="active">Inicio</a></li>
+        <li class="nav-item"><a routerLink="/queries" class="nav-link" routerLinkActive="active">Consultas</a></li>
+        <li class="nav-item"><a routerLink="/reg" class="nav-link" routerLinkActive="active">Registrar</a></li>
+        <!--li class="nav-item" *ngIf="islogin"><a routerLink='/login' class="nav-link" routerLinkActive="active">log-in</a></!--li>
+        <li class="nav-item" *ngIf="!islogin"><a routerLink='/logout' class="nav-link" routerLinkActive="active">log-out</a></li-->
       </ul>
     </nav>
   </div>
 </header>
-
-<nav class="container">
-  <div class="row">
-    <div class="col-md-12">
-    </div>
-  </div>
-</nav>
 
 <router-outlet></router-outlet>
 

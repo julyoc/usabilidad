@@ -46,6 +46,7 @@ type Query {
     findSomePublicaciones(personID: ID!): [Publicaciones],
     findSomeExperiencia(personID: ID!): [Experiencia],
 
-    findAllNot: [Notificacion]
+    findAllNot: [Notificacion],
+    findNot(endpoint: String!, keys_auth: String!, keys_p256dh: String!): Boolean
 
 }

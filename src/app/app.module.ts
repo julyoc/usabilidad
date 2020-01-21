@@ -7,15 +7,25 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { GraphQLModule } from './graphql.module';
 import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { CookieService } from 'ngx-cookie-service';
-import { HomeModule } from './home/home.module';
+import { AlertModule } from 'ngx-alerts';
+import { AlertService } from 'ngx-alerts';
+import { HomeComponent } from './home/home.component';
 import { PushNotificacionesService } from './push-notificaciones.service';
-import { DataService } from './data.service';
+import { QueriesModule } from './queries/queries.module';
+import { LoginComponent } from './login/login.component';
+import { LogoutComponent } from './logout/logout.component';
+import { AccountModule } from './account/account.module';
+import { RegModule } from './reg/reg.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HomeComponent,
+    LoginComponent,
+    LogoutComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
@@ -23,9 +33,13 @@ import { DataService } from './data.service';
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
     HttpClientModule,
     GraphQLModule,
-    HomeModule
+    AlertModule.forRoot({maxMessages: 5, timeout: 5000, position: 'right'}),
+    QueriesModule,
+    RegModule,
+    ReactiveFormsModule,
+    AccountModule
   ],
-  providers: [CookieService, PushNotificacionesService, DataService],
+  providers: [CookieService, PushNotificacionesService, AlertService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

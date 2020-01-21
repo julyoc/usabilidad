@@ -16,7 +16,7 @@
       "module/@types"
     ],
     "lib": [
-      "es2018",
+      "es2017",
       "dom",
       "esnext.asynciterable"
     ]

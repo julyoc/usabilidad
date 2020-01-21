@@ -14,6 +14,7 @@ import {
     Notificaciones
 } from './models';
 import { Document } from 'mongoose';
+import { async } from '@angular/core/testing';
 
 
 const solvers = {
@@ -32,6 +33,14 @@ const solvers = {
             dat = res;
         });
         return dat;
+    },
+    findNot: async (_, {endpoint, keys_auth, keys_p256dh}) => {
+        var ret: Boolean = false;
+        await Notificaciones.findOne({endpoint: endpoint, keys: { auth: keys_auth, p256dh: keys_p256dh}}, (err: any, res: Document) => {
+            if ( err ) console.error(err);
+            ret = true;
+        });
+        return ret;
     },
     findOnePersonData: async (_, { ci, number }) => {
         var dat: Document;

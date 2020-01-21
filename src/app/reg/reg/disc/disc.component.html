@@ -1,0 +1,17 @@
+<div *ngIf="datval">
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
+            <div class="input-group">
+                <div class="input-group-prepend"><span class="input-group-text">Tipo</span></div>
+                <input type="text" class="form-control" aria-label="tipo" placeholder="tipo" formControlName='tipo'>
+                <div class="input-group-prepend"><span class="input-group-text">Nivel</span></div>
+                <input type="number" class="form-control" aria-label="nivel" placeholder="0-100" formControlName='nivel'>
+                <div class="input-group-prepend"><span class="input-group-text">Carnet</span></div>
+                <input type="text" class="form-control" aria-label="carnet" placeholder="carnet" formControlName='carnet'>
+                <div class="input-group-prepend"><button class="btn btn-outline-secondary" (click)="onOk()">Ok</button></div>
+            </div>
+        </div>
+        <div class="col-md-1"></div>
+    </div>
+</div>
