@@ -1,7 +1,118 @@
 <main class="container">
+    <br>
     <section class="row">
-        <article class="col-md-12">
-            <p>dir works!</p>
+        <div class="col-md-1"></div>
+        <article class="col-md-10">
+            <p><strong>Ingrese la informacion de su residencia</strong></p>
+        </article>
+        <div class="col-md-1"></div> 
+    </section>
+    <section>
+        <article>
+            <form [formGroup]="formulario"  (ngSubmit)="onSubmit()">
+                <div class="row">
+                    <div class="col-md-1"></div> 
+                    <div class="col-md-10">
+                        <div class="input-group">
+                            <div class="input-group-prepend"><span class="input-group-text">Provincia de residencia</span></div>
+                            <input type="text" class="form-control" aria-label="provincia" placeholder="provincia" formControlName="provincia" required>
+                        </div>
+                    </div>
+                    <div class="col-md-1"></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-10">
+                        <div class="input-group">
+                            <div class="input-group-prepend"><span class="input-group-text">Ciudad de residencia</span></div>
+                            <input type="text" class="form-control" aria-label="ciudad" placeholder="ciudad" formControlName="canton" required>
+                        </div>
+                    </div>
+                    <div class="col-md-1"></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-10">
+                        <div class="input-group">
+                            <div class="input-group-prepend"><span class="input-group-text">Parroquia de residencia</span></div>
+                            <input type="text" class="form-control" aria-label="parroquia" placeholder="parroquia" formControlName="parroquia" required>
+                        </div>
+                    </div>
+                    <div class="col-md-1"></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-10">
+                        <div class="input-group">
+                            <div class="input-group-prepend"><span class="input-group-text">Calle 1</span></div>
+                            <input type="text" class="form-control" aria-label="calle1" placeholder="calle principal" formControlName="calle1" required>
+                        </div>
+                    </div>
+                    <div class="col-md-1"></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-10">
+                        <div class="input-group">
+                            <div class="input-group-prepend"><span class="input-group-text">Calle 2</span></div>
+                            <input type="text" class="form-control" aria-label="calle2" placeholder="calle secundaria" formControlName="calle2" required>
+                        </div>
+                    </div>
+                    <div class="col-md-1"></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-10">
+                        <div class="input-group">
+                            <div class="input-group-prepend"><span class="input-group-text">Referencia</span></div>
+                            <input type="text" class="form-control" aria-label="ref" placeholder="Referencia" formControlName="ref" required>
+                            <div class="input-group-prepend"><span class="input-group-text">Numero de casa</span></div>
+                            <input type="text" class="form-control" aria-label="casa" placeholder="numero de casa" formControlName="casa" required>
+                        </div>
+                    </div>
+                    <div class="col-md-1"></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-10">
+                        <div class="input-group">
+                            <div class="input-group-prepend"><span class="input-group-text">Telefono domicilio</span></div>
+                            <input type="text" class="form-control" aria-label="teldom" placeholder="Telefono domicilio" formControlName="teldom" required>
+                        </div>
+                    </div>
+                    <div class="col-md-1"></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-10">
+                        <div class="input-group">
+                            <div class="input-group-prepend"><span class="input-group-text">Telefono trabajo</span></div>
+                            <input type="text" class="form-control" aria-label="teltrab" placeholder="extencion" formControlName="extteltrab" required>
+                            <input type="text" class="form-control" aria-label="teltrab" placeholder="Telefono trabajo" formControlName="teltrab" required>
+                        </div>
+                    </div>
+                    <div class="col-md-1"></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-10">
+                        <div class="input-group">
+                            <div class="input-group-prepend"><span class="input-group-text">Numero de Celular</span></div>
+                            <input type="text" class="form-control" aria-label="cel" placeholder="Numero de Celular" formControlName="cel" required>
+                        </div>
+                    </div>
+                    <div class="col-md-1"></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-5"></div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <input type="submit" value="continuar" class="btn btn-primary">
+                        </div>
+                    </div>
+                    <div class="col-md-5"></div>
+                </div>
+            </form>
         </article>
     </section>
     <app-account></app-account>

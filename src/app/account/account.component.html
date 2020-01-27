@@ -1,3 +1,9 @@
+<div class="row" *ngIf="isUser">
+    <div class="col-md-2">
+        <button class="btn" (click)="dat($event)" style="color: black;">Actualizar Datos</button>
+    </div>
+    <div class="col-md0-10"></div>
+</div>
 <div class="row">
     <div class="col-md-2 boton">
         <button class="btn" *ngIf="islog" (click)="in($event)">log-in</button>

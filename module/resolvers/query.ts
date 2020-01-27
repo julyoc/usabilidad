@@ -14,7 +14,6 @@ import {
     Notificaciones
 } from './models';
 import { Document } from 'mongoose';
-import { async } from '@angular/core/testing';
 
 
 const solvers = {
@@ -45,6 +44,14 @@ const solvers = {
     findOnePersonData: async (_, { ci, number }) => {
         var dat: Document;
         await DatosPersonales.findOne({identificacion: {ci: ci, number: number}}, (err: any, res: Document) =>{
+            if ( err ) console.error(err);
+            dat = res;
+        });
+        return dat;
+    },
+    findUser: async (_, { mail, pass }) => {
+        var dat: Document;
+        await DatosPersonales.findOne({pass: pass, mail: mail}, (err: any, res: Document) =>{
             if ( err ) console.error(err);
             dat = res;
         });

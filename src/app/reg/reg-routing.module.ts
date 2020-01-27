@@ -3,6 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { RegComponent } from './reg/reg.component';
 import { DirComponent } from './dir/dir.component';
 import { ContactComponent } from './contact/contact.component';
+import { SetComponent } from './set/set.component';
+import { AdminComponent } from './admin/admin.component';
 
 /**
  * guarda las rutas de las mutaciones
@@ -20,6 +22,14 @@ const routes: Routes = [
     {
         path: 'contact',
         component: ContactComponent
+    },
+    {
+        path: 'set',
+        component: SetComponent
+    },
+    {
+        path: 'admin',
+        component: AdminComponent
     }
 ];
 

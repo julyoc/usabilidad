@@ -3,14 +3,14 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { Apollo } from 'apollo-angular';
-import { Subscription } from 'rxjs';
 import gql from 'graphql-tag';
 
 
 const sendform = gql`mutation pushOnePersonData($data: DatosPersonalesIn!) {
-  pushOnePersonData(data: $data)
-}
-`;
+  pushOnePersonData(data: $data){
+    _id
+  }
+}`;
 
 @Component({
   selector: 'app-reg',
@@ -65,10 +65,6 @@ export class RegComponent implements OnInit, OnDestroy {
    */
   public extDat: any;
 
-  /**
-   * 
-   */
-  public querySubscription: Subscription;
 
   /**
    * 
@@ -111,6 +107,11 @@ export class RegComponent implements OnInit, OnDestroy {
   ngOnInit() {
     if (!this.cookie.check('user')) {
       this.ruta.navigate(['login'])
+      return;
+    }
+    if (this.cookie.get('user') != 'admin'){
+      this.ruta.navigate(['reg','admin']);
+      return; 
     }
   }
 
@@ -120,8 +121,6 @@ export class RegComponent implements OnInit, OnDestroy {
    * @implements
    */
   ngOnDestroy() {
-    //this.dataServ.unsubscribe();
-    //this.querySubscription.unsubscribe();
   }
 
   /**
@@ -140,14 +139,6 @@ export class RegComponent implements OnInit, OnDestroy {
     return edad;
   }
 
-  private arrayConfig (arr: Array<String>): Array<String>{
-    for (const i in arr) {
-      if (arr.hasOwnProperty(i)) {
-        arr[i] = '"' + arr[i] + '"';
-      }
-    }
-    return arr;
-  }
 
   /**
    * 
@@ -166,7 +157,7 @@ export class RegComponent implements OnInit, OnDestroy {
    * envia los datos al servidor para ser guardados en la base de datos
    * @function onSubmit
    */
-  onSubmit() {
+  async onSubmit() {
 
     var data = {
       identificacion: {
@@ -193,53 +184,16 @@ export class RegComponent implements OnInit, OnDestroy {
         tipo: this.extDat.tipo ? this.extDat.tipo : "",
         nivel: this.extDat.nivel ? this.extDat.nivel : 0,
         carnet: this.extDat.carnet ? this.extDat.carnet : ""
-      }
+      },
+      pass: this.formulario.value.number
     };
-    console.log();
-    /*this.apollo.mutate({
-      mutation: gql`
-        mutation {
-          pushOnePersonData(data: ${JSON.stringify(data)})
-        }
-      `
-    }).subscribe(res => console.info(res), err => console.error(err));*/
-    this.apollo.mutate({
+    this.apollo.mutate<any>({
       mutation: sendform,
       variables: {data}
-    }).subscribe(res => console.info(res), err => console.error(err));
-    /*
-    this.apollo.mutate({
-      mutation: gql`mutation {
-        pushOnePersonData(data: {
-          identificacion: {
-            ci: ${this.formulario.value.ci === false ? true : false},
-            number: "${this.formulario.value.number}"
-          },
-          nombre: [${this.arrayConfig(this.formulario.value.nombre.split(' '))}],
-          apellido: [${this.arrayConfig(this.formulario.value.apellido.split(' '))}],
-          nacimiento: "${this.formulario.value.nacimiento}",
-          edad: ${this.calcEdad(new Date(this.formulario.value.nacimiento))},
-          nacionalidad: "${this.formulario.value.nacionalidad}",
-          residencia: ${this.formulario.value.residencia},
-          sangre: "${this.sangre.value}",
-          estado_civil: "${this.formulario.value.estado_civil}",
-          enfermedades: {
-            enfermedad: ${this.formulario.value.enfermedades === false ? false : true},
-            tipo: "${this.formulario.value.enfTipo ? this.formulario.value.enfTipo : ""}"
-          },
-          sexo: "${this.sexoform.value}",
-          iden_etnica: "${this.formulario.value.iden_etnica}",
-          mail: [${this.arrayConfig(this.formulario.value.mail.split(' '))}],
-          discapasidad: {
-            discapasidad: ${this.formulario.value.discapasidad === false ? false : true},
-            tipo: "${this.extDat.tipo ? this.extDat.tipo : ""}",
-            nivel: "${this.extDat.nivel ? this.extDat.nivel : ""}",
-            carnet: "${this.extDat.carnet ? this.extDat.carnet : ""}"
-          }
-        })
-      }`}).subscribe(res => console.log(res), err=> console.error(err));*/
-    //this.cookie.set('person_id', );
-    this.ruta.navigate(['reg','dir']);
+    }).subscribe(res => console.info(res, "res"), err => console.error(err));
+    this.cookie.set('ci', this.formulario.value.ci == false ? "true" : "false");
+    this.cookie.set('number', this.formulario.value.number);
+    this.ruta.navigate(['reg','set']);
   }
 
   /**

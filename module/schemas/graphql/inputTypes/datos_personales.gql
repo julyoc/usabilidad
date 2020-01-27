@@ -12,5 +12,6 @@ input DatosPersonalesIn {
     sexo: String!,
     discapasidad: DiscapasidadIn!,
     iden_etnica: String!,
-    mail:[String]!
+    mail:[String]!,
+    pass: String!
 }

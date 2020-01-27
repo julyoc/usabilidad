@@ -13,5 +13,6 @@ type DatosPersonales {
     sexo: String,
     discapasidad: Discapasidad,
     iden_etnica: String,
-    mail:[String]
+    mail:[String],
+    pass: String!
 }

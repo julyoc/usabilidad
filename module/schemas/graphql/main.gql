@@ -26,6 +26,7 @@
 type Query {
 
     findAll: [DatosPersonales],
+    findUser(mail: String!, pass: String!): DatosPersonales,
 
     findOnePersonData(ci: Boolean!, number: String!): DatosPersonales,
     findOneDireccionContacto(personID: ID!): DireccionContacto,

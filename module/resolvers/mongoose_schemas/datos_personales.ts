@@ -25,7 +25,8 @@ const sqm: any = {
         carnet: {type: String, default: ''}
     },
     iden_etnica: String,
-    mail: [String]
+    mail: [String],
+    pass: String
 };
 
 export default new Schema(sqm);

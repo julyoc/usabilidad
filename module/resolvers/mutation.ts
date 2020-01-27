@@ -54,11 +54,10 @@ const solvers =  {
     pushOnePersonData: async (_, { data }) => {
         data.nacimiento = new Date(data.nacimiento);
         var Person = new DatosPersonales(data);
-        console.log(data);
         var ret: any;
         await Person.save((err: any, product: Document) => {
             if ( err ) console.error(err);
-            console.info (product);
+            console.log(product._id);
             ret = product._id;
         });
         return ret;

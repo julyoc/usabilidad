@@ -13,6 +13,7 @@ export class AccountComponent implements OnInit {
    * @property verifica si se ha iniciado sesion
    */
   public islog: Boolean;
+  public isUser: Boolean;
   /**
    * 
    * @param cookie permite la administracion de cookies
@@ -28,6 +29,12 @@ export class AccountComponent implements OnInit {
    */
   ngOnInit() {
     this.islog = !this.cookie.check('user');
+    if (this.cookie.check('user')){
+      console.log(this.cookie.get('user'));
+      if (this.cookie.get('user') != 'admin') {
+        this.isUser=true;
+      }
+    }
   }
 
   /**
@@ -48,6 +55,16 @@ export class AccountComponent implements OnInit {
    */
   out($event) {
     this.ruta.navigate(['logout']);
+  }
+
+  /**
+   * 
+   * redirecciona al administrador para actualizar datos
+   * @function dat 
+   * @param $event 
+   */
+  dat($event) {
+    this.ruta.navigate(['reg', 'admin']);
   }
 
 }
