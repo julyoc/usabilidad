@@ -5,6 +5,7 @@ import { DirComponent } from './dir/dir.component';
 import { ContactComponent } from './contact/contact.component';
 import { SetComponent } from './set/set.component';
 import { AdminComponent } from './admin/admin.component';
+import { ConyugeComponent } from './conyuge/conyuge.component';
 
 /**
  * guarda las rutas de las mutaciones
@@ -30,6 +31,10 @@ const routes: Routes = [
     {
         path: 'admin',
         component: AdminComponent
+    },
+    {
+        path: 'conyuge',
+        component: ConyugeComponent
     }
 ];
 

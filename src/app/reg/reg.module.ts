@@ -12,10 +12,11 @@ import { GraphQLModule } from '../graphql.module';
 import { SetComponent } from './set/set.component';
 import { AdminComponent } from './admin/admin.component';
 import { AlertModule } from 'ngx-alerts';
+import { ConyugeComponent } from './conyuge/conyuge.component';
 
 
 @NgModule({
-  declarations: [RegComponent, DirComponent, ContactComponent, DiscComponent, SetComponent, AdminComponent],
+  declarations: [RegComponent, DirComponent, ContactComponent, DiscComponent, SetComponent, AdminComponent, ConyugeComponent],
   imports: [
     CommonModule,
     RegRoutingModule,

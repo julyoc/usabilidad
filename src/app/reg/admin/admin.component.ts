@@ -21,4 +21,8 @@ export class AdminComponent implements OnInit {
     this.ruta.navigate(['reg', 'contact']);
   }
 
+  onConyuge($event) {
+    this.ruta.navigate(['reg','conyuge']);
+  }
+
 }

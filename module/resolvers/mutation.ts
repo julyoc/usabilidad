@@ -382,6 +382,105 @@ const solvers =  {
         webPush.sendNotification(user, JSON.stringify(notificationPayload));
         console.log('Notificacion enviada');
         return 'Notificacion enviada';
+    },
+    updatePersonData: async (_, { data, id }) => {
+        var ret = '';
+        let res = await DatosPersonales.replaceOne({datos_personales_id: id}, data, (err, raw) => {
+            if (err) console.error(err);
+            ret = 'actualizado';
+        });
+        console.log(res);
+        return ret;
+    },
+    updateDireccionContacto: async (_, { data, id }) => {
+        var ret = '';
+        let res = await DireccionContacto.replaceOne({datos_personales_id: id}, data, (err, raw) => {
+            if (err) console.error(err);
+            ret = 'actualizado';
+        });
+        console.log(res);
+        return ret;
+    },
+    updateContactoEmergencia: async (_, { data, id }) => {
+        var ret = '';
+        let res = await ContactoEmergencia.replaceOne({datos_personales_id: id}, data, (err, raw) => {
+            if (err) console.error(err);
+            ret = 'actualizado';
+        });
+        console.log(res);
+        return ret;
+    },
+    updateConyuge: async (_, { data, id }) => {
+        var ret = '';
+        let res = await Conyuge.replaceOne({datos_personales_id: id}, data, (err, raw) => {
+            if (err) console.error(err);
+            ret = 'actualizado';
+        });
+        console.log(res);
+        return ret;
+    },
+    updateBienes: async (_, { data, id }) => {
+        var ret = '';
+        let res = await Bienes.replaceOne({datos_personales_id: id}, data, (err, raw) => {
+            if (err) console.error(err);
+            ret = 'actualizado';
+        });
+        console.log(res);
+        return ret;
+    },
+    updateInfoFamiliar: async (_, { data, id }) => {
+        var ret = '';
+        let res = await InfoFamiliar.replaceOne({datos_personales_id: id}, data, (err, raw) => {
+            if (err) console.error(err);
+            ret = 'actualizado';
+        });
+        console.log(res);
+        return ret;
+    },
+    updateInfoBancaria: async (_, { data, id }) => {
+        var ret = '';
+        let res = await InfoBancaria.replaceOne({datos_personales_id: id}, data, (err, raw) => {
+            if (err) console.error(err);
+            ret = 'actualizado';
+        });
+        console.log(res);
+        return ret;
+    },
+    updateFormacion: async (_, { data, id }) => {
+        var ret = '';
+        let res = await Formacion.replaceOne({datos_personales_id: id}, data, (err, raw) => {
+            if (err) console.error(err);
+            ret = 'actualizado';
+        });
+        console.log(res);
+        return ret;
+    },
+    updateCapacitacion: async (_, { data, id }) => {
+        var ret = '';
+        let res = await Capasitacion.replaceOne({datos_personales_id: id}, data, (err, raw) => {
+            if (err) console.error(err);
+            ret = 'actualizado';
+        });
+        console.log(res);
+        return ret;
+    },
+    updatePublicaciones: async (_, { data, id }) => {
+        var ret = '';
+        let res = await Publicaciones.replaceOne({datos_personales_id: id}, data, (err, raw) => {
+            if (err) console.error(err);
+            ret = 'actualizado';
+        });
+        console.log(res);
+        return ret;
+    },
+    updateExperiencia: async (_, { data, id }) => {
+        var ret = '';
+        let res = await Experiencia.replaceOne({datos_personales_id: id}, data, (err, raw) => {
+            if (err) console.error(err);
+            ret = 'actualizado';
+        });
+        console.log(res);
+        return ret;
     }
 }
 

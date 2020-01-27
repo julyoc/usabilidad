@@ -1,0 +1,47 @@
+<main class="container">
+    <br>
+    <section class="row">
+        <article class="col-md-12">
+            <p><strong>Ingrese la Información de su Cónyuge</strong></p>
+        </article>
+    </section>
+    <section>
+        <article>
+            <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
+                <div class="row">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-10">
+                        <div class="input-group">
+                            <div class="input-group-prepend"><span class="input-group-text">Nombres | Apellidos</span></div>
+                            <input type="text" class="form-control" aria-label="nombre" placeholder="Nombres" formControlName="nombre" required>
+                            <input type="text" class="form-control" aria-label="apellido" placeholder="Apellidos" formControlName="apellido" required>
+                        </div>
+                    </div>
+                    <div class="col-md-1"></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-10">
+                        <div class="input-group">
+                            <div class="input-group-prepend"><span class="input-group-text">Relación</span></div>
+                            <input type="text" class="form-control" aria-label="relacion" placeholder="Relacion" formControlName="relacion" required>
+                            <div class="input-group-prepend"><span class="input-group-text">Nacimiento</span></div>
+                            <input type="date" class="form-control" aria-label="relacion" formControlName="nacimiento" required>
+                        </div>
+                    </div>
+                    <div class="col-md-1"></div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-md-5"></div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <input type="submit" value="Enviar" class="btn btn-primary">
+                        </div>
+                    </div>
+                    <div class="col-md-5"></div>
+                </div>
+            </form>
+        </article>
+    </section>
+</main>

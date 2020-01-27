@@ -45,6 +45,18 @@ type Mutation {
     deleteOne(personID: ID!): String,
 
     setNotificacion(data: NotificacionIn!): String,
-    sendNotificacion(title: String!, message: String!, user: NotificacionIn!): String
+    sendNotificacion(title: String!, message: String!, user: NotificacionIn!): String,
+
+    updatePersonData(data: DatosPersonalesIn!, id: ID!): DatosPersonales,
+    updateDireccionContacto(data: DireccionContactIn!, id: ID!): String,
+    updateContactoEmergencia(data: ContactoEmergenciaIn!, id: ID!): String,
+    updateConyuge(data: ConyugeIn!, id: ID!): String,
+    updateBienes(data: BienesIn!, id: ID!): String,
+    updateInfoFamiliar(data: InfoFamiliarIn!, id: ID!): String,
+    updateInfoBancaria(data: InfoBancariaIn!, id: ID!): String,
+    updateFormacion(data: FormacionIn!, id: ID!): String,
+    updateCapacitacion(data: CapacitacionIn!, id: ID!): String,
+    updatePublicaciones(data: PublicacionesIn!, id: ID!): String,
+    updateExperiencia(data: ExperienciaIn!, id: ID!): String
 
 }
